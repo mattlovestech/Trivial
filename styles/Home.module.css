@@ -1,5 +1,7 @@
 .container {
   padding: 0 2rem;
+  /*background-image: url('https://media1.giphy.com/media/pOLspHmrKmQmc/giphy.gif?cid=ecf05e47mt0ym24xu07n7p83r1ce9fumsapizevxgxov16d0&rid=giphy.gif&ct=g');*/
+  background-size: cover;
 }
 
 .main {
