@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+progress {
+  border: none;
+  width: 100%;
+  height: 5px;
+  background: transparent;
+
+}
+
+
+
+progress::-webkit-progress-value {
+  background: white;
+}
+
+progress::-moz-progress-bar {
+  background: transparent !important;
+}

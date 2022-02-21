@@ -19,20 +19,20 @@ function LinearProgressWithLabel(props) {
 }
 
 export default function LinearWithValueLabel() {
-    const [progress, setProgress] = React.useState(10);
+    const [progress, setProgress] = React.useState(1);
 
     React.useEffect(() => {
         const timer = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
-        }, 800);
+            setProgress((prevProgress) => (prevProgress >= 100 ? 1 : prevProgress + 1));
+        }, 100);
         return () => {
             clearInterval(timer);
         };
     }, []);
 
     return (
-        <Box sx={{ width: '100%' }}>
-            <progress value={progress} max={"100"} />
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <progress style={{width: "100%"}} value={progress} max={"100"} />
         </Box>
     );
 }
