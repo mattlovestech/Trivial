@@ -34,9 +34,9 @@ export default class ProgressTopBar extends React.Component {
 
         return (
             <Box sx={{width: '100%'}}>
-                <LinearProgress variant="determinate"
-                                value={this.state.progressValue}/>
-
+                {/*<LinearProgress variant="determinate"*/}
+                {/*                value={this.state.progressValue}/>*/}
+aa
 
             </Box>
         );
