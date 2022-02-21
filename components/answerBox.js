@@ -25,7 +25,14 @@ export default class AnswerBox extends React.Component {
                         background: "rgba(255, 255, 255, 0.3)",
                         borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
                         <br/>
-                        <Button className={"blankQuizButtonPlain"}
+                        <Button style={{
+                            marginBottom: "15px",
+                            width: "75%",
+                            justifyContent:" flex-start",
+                            borderRadius:"25px",
+                            background: "white",
+                            color: "black"
+                        }}
                                 variant={"contained"}>
                             <Avatar sx={{ background: "white", color: "black", border: "1px black solid", width: 24, height: 24, marginRight: "15px"}} alt="A" src="/static/images/avatar/1.jpg" />
                             <a>Atlanta</a>

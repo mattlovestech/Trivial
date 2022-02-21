@@ -12,8 +12,9 @@ import QuizNavBar from "../components/quizNavBar";
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Button from "@mui/material/Button";
-import { createTheme } from '@mui/material/styles';
-import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
 
 export default function Quiz() {
     const data = [
