@@ -39,8 +39,6 @@ export default function Home() {
           <br/>
         <Button className={styles.landingButton} variant={"contained"} href={"/quiz"}>Get Started</Button>
        <br/>
-        <AnswerBox/>
-
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
