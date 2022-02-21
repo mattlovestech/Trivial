@@ -9,7 +9,11 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import QuizNavBar from "../components/quizNavBar";
-import TextField from "@mui/material/TextField";
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Button from "@mui/material/Button";
+import { createTheme } from '@mui/material/styles';
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 
 export default function Quiz() {
     const data = [
@@ -17,6 +21,34 @@ export default function Quiz() {
         "https://media4.giphy.com/media/kqBmbzAA3hBwb6Aw42/giphy.gif?cid=ecf05e47196j4zsr9mx463mgv2sjufr2k9q6q93f80kcb4os&rid=giphy.gif&ct=s"
 
     ]
+
+
+
+
+    const theme = createTheme({
+        palette: {
+            primary: {
+                // light: will be calculated from palette.primary.main,
+                main: '#fff',
+                // dark: will be calculated from palette.primary.main,
+                // contrastText: will be calculated to contrast with palette.primary.main
+            },
+            secondary: {
+                light: '#0066ff',
+                main: '#0044ff',
+                // dark: will be calculated from palette.secondary.main,
+                contrastText: '#ffcc00',
+            },
+            // Used by `getContrastText()` to maximize the contrast between
+            // the background and the text.
+            contrastThreshold: 3,
+            // Used by the functions below to shift a color's luminance by approximately
+            // two indexes within its tonal palette.
+            // E.g., shift from Red 500 to Red 300 or Red 700.
+            tonalOffset: 0.2,
+        },
+    });
+
     return (
         <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`,
             height: "100vh"
@@ -41,6 +73,24 @@ export default function Quiz() {
             <br/>
 
             <AnswerBox/>
+            <br/>
+            <div style={{textAlign: "center"}}>
+                <Stack
+                    direction="row"
+                    justifyContent="center"
+                    spacing={2}
+                >
+                    <ThemeProvider theme={theme}>
+                        <Button color={"primary"} variant="outlined" startIcon={<DeleteIcon />}>
+                            Delete
+                        </Button>
+                        <Button variant="contained" endIcon={<SendIcon />}>
+                            Send
+                        </Button>
+                    </ThemeProvider>
+
+            </Stack>
+            </div>
 
         </div>
     )
