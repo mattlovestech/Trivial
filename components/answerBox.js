@@ -21,11 +21,10 @@ export default class AnswerBox extends React.Component {
                         borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
                         <h3>What city is Howard University located in?</h3>
                     </Box>
-
                     <Box style={{textAlign: "center",
                         background: "rgba(255, 255, 255, 0.3)",
                         borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
-
+                        <br/>
                         <Button className={blankQuizButton}
 
                                 variant={"contained"}
@@ -49,7 +48,6 @@ export default class AnswerBox extends React.Component {
                             <a>Houston</a>
                         </Button>
                         <br/> <br/>
-
                     </Box>
                 </div>
 

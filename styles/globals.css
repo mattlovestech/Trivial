@@ -29,3 +29,30 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   background: transparent !important;
 }
+
+.blankQuizButtonPlain {
+  margin-bottom: 15px;
+  width: 75%;
+  justify-content: flex-start;
+  border-radius:25px;
+  background: white;
+  color: black;
+}
+
+.blankQuizButtonCorrect {
+  margin-bottom: 15px;
+  width: 75%;
+  justify-content: flex-start;
+  border-radius:25px;
+  background: darkgreen;
+  color: white;
+}
+
+.blankQuizButtonIncorrect {
+  margin-bottom: 15px;
+  width: 75%;
+  justify-content: flex-start;
+  border-radius:25px;
+  background: darkred;
+  color: white;
+}

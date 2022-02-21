@@ -8,6 +8,9 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
+import QuizNavBar from "../components/quizNavBar";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export default function Home() {
   const data = [
@@ -24,24 +27,18 @@ export default function Home() {
       <br/>
       <LinearWithValueLabel/>
       <br/>
-      <Stack  style={{background: "rgba(0,0,0,0.3)", color: "white", borderRadius: "25px", paddingRight: "10px"}} direction="row"
-              justifyContent="space-between"
-              alignItems="center" spacing={2}>
-        <Avatar alt="Remy Sharp" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/atlanta-georgia-downtown-city-skyline-cavan-images.jpg" />
-        <h3>Insert Quiz Name</h3>
-        <MoreHorizIcon/>
-      </Stack>
+      <QuizNavBar/>
 
       <main className={styles.main}>
+
 
         <h1 className={styles.title}>
           Create a shareable quizzes
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>Create your quiz</code>
-        </p>
+          <br/>
+        <Button className={styles.landingButton} variant={"contained"} href={"/quiz"}>Get Started</Button>
+       <br/>
         <AnswerBox/>
 
         <div className={styles.grid}>
@@ -76,14 +73,10 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
 
-        </a>
+          Create by @mattlovestech with love
+
+
       </footer>
     </div>
   )
