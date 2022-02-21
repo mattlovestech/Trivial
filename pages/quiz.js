@@ -19,7 +19,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 export default function Quiz() {
     const data = [
         'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
-        "https://media0.giphy.com/media/3M9DGwQfiT6uLKAq8a/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
+        "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
 
     ]
 
@@ -63,15 +63,15 @@ export default function Quiz() {
             <LinearWithValueLabel/>
             <br/>
             <QuizNavBar/>
-            <br/>
-            <br/>
+
+
             <div  style={{textAlign: "center"}}>
-                <img height="160px"
+                <img height="140px"
 
                      alt="hbcu gif text"
                      src={data[1]}/>
             </div>
-            <br/>
+
 
             <AnswerBox/>
             <br/>
