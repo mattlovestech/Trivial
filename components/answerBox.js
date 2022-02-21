@@ -88,7 +88,7 @@ export default class AnswerBox extends React.Component {
         return (
 
             <>
-                {this.props.progress}
+
                 <div style={{marginLeft: "10%", marginRight: "10%"}}>
                     <Box style={{color: "white", padding: "5px",textAlign: "center",
                         background: "black",

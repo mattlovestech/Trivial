@@ -14,6 +14,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AnswersBox from "../components/answersBox";
+import Box from "@mui/material/Box";
 
 
 
@@ -73,7 +74,7 @@ export default function Quiz() {
             <br/>
             <LinearWithValueLabel progress={progress}/>
             <br/>
-            <AnswersBox progress={progress}/>
+
             <QuizNavBar/>
 
 
@@ -85,7 +86,23 @@ export default function Quiz() {
             </div>
 
 
-            {<AnswerBox progress={progress}/>}
+            <div style={{marginLeft: "10%", marginRight: "10%"}}>
+                <Box style={{color: "white", padding: "5px",textAlign: "center",
+                    background: "black",
+                    borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
+                    <h3>What city is the capital of Georgia?</h3>
+                </Box>
+
+                <Box style={{textAlign: "center",
+                    background: "rgba(255, 255, 255, 0.3)",
+                    borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
+                    <br/>
+
+                    <AnswersBox progress={progress}/>
+
+                    <br/> <br/>
+                </Box>
+            </div>
 
             <br/>
             <div style={{textAlign: "center"}}>
