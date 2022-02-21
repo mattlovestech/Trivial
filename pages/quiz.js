@@ -19,7 +19,7 @@ export default function Quiz() {
     ]
     return (
         <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`,
-
+            height: "100vh"
         }}>
             <Head>
                 <title>Trivial</title>
@@ -31,19 +31,17 @@ export default function Quiz() {
             <br/>
             <QuizNavBar/>
             <br/>
+            <br/>
             <div  style={{textAlign: "center"}}>
                 <img height="160px"
 
                      alt="hbcu gif text"
                      src={data[1]}/>
             </div>
+            <br/>
+
             <AnswerBox/>
 
-            <footer className={styles.footer}>
-
-                Create by @mattlovestech with love
-
-            </footer>
         </div>
     )
 }
