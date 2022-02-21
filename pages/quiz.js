@@ -13,6 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AnswersBox from "../components/answersBox";
 
 
 
@@ -53,8 +54,8 @@ export default function Quiz() {
 
     React.useEffect(() => {
         const timer = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress >= 100 ? 1 : prevProgress + 1));
-        }, 50);
+            setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 1));
+        }, 20);
         console.log(progress)
         return () => {
             clearInterval(timer);
@@ -72,6 +73,7 @@ export default function Quiz() {
             <br/>
             <LinearWithValueLabel progress={progress}/>
             <br/>
+            <AnswersBox progress={progress}/>
             <QuizNavBar/>
 
 
@@ -83,7 +85,8 @@ export default function Quiz() {
             </div>
 
 
-            <AnswerBox/>
+            {<AnswerBox progress={progress}/>}
+
             <br/>
             <div style={{textAlign: "center"}}>
                 <Stack

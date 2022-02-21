@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -39,36 +39,56 @@ const incorrectQuizButton = {
 
 
 export default class AnswerBox extends React.Component {
+
     constructor(props) {
+
         super(props);
         this.state = { quizButton: [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton],
-                        answers: ["Nashville", "Atlanta", "Georgia City", "Savannah" ]
+                        answers: ["Nashville", "Atlanta", "Georgia City", "Savannah" ],
+                        progress: this.props.progress
                         };
        this.handleClick = this.handleClick.bind(this);
+       console.log(this.props.progress)
+
     }
+
+
     handleClick = () => {
         this.setState({quizButton: [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]})
 
+
     }
 
+
+    componentDidMount() {
+
+    }
+
+
     render() {
+        console.log(this.props.progress)
+       // //console.log(this.props.progress)
+        if (this.props.progress === 100) {
+        //   console.log("itworked")
+            console.log("count")
+        }
+
 
         const answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-            //  <div  key={index}>
-            //     <br/>
-            //          <a>Choose a <strong>school</strong> to see colors with hex codes</a>
-            // </div>
-            <Button id="linkid" onClick={this.handleClick} style={this.state.quizButton[index]}
-                    variant={"contained"}>
+             (<Button id="linkid" onClick={this.handleClick} style={this.state.quizButton[index]}
+                            variant={"contained"}>
                 <Avatar sx={{ background: this.state.quizButton[index]["background"], color: this.state.quizButton[index]["color"], border: this.state.quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
                 {this.state.answers[index]}
-            </Button>
+            </Button>)
+
+
         )
 
         return (
-            <>
 
+            <>
+                {this.props.progress}
                 <div style={{marginLeft: "10%", marginRight: "10%"}}>
                     <Box style={{color: "white", padding: "5px",textAlign: "center",
                         background: "black",
@@ -82,29 +102,7 @@ export default class AnswerBox extends React.Component {
                         <br/>
 
                         {answers}
-                        {/*<Button onClick={this.handleClick} style={this.state.quizButton[0]}*/}
-                        {/*        variant={"contained"}>*/}
-                        {/*    <Avatar sx={{ background: "white", color: this.state.quizButton[0]["color"], border: this.state.quizButton[0]["border"], width: 24, height: 24, marginRight: "15px"}} alt="A" src="/static/images/avatar/1.jpg" />*/}
-                        {/*    <a>Savannah</a>*/}
-                        {/*</Button>*/}
-                        {/*<br/>*/}
-                        {/*<Button onClick={this.handleClick} style={this.state.quizButton[1]}*/}
-                        {/*        variant={"contained"}>*/}
-                        {/*    <Avatar sx={{ background: "white", color: this.state.quizButton[1]["color"],border: this.state.quizButton[1]["border"],width: 24, height: 24, marginRight: "15px"}} alt="B" src="/static/images/avatar/1.jpg" />*/}
-                        {/*    <a>Atlanta</a>*/}
-                        {/*</Button>*/}
-                        {/*<br/>*/}
-                        {/*<Button onClick={this.handleClick} style={this.state.quizButton[2]}*/}
-                        {/*        variant={"contained"}>*/}
-                        {/*    <Avatar sx={{ background: "white", color: "black",border: "1px black solid",width: 24, height: 24, marginRight: "15px"}} alt="C" src="/static/images/avatar/1.jpg" />*/}
-                        {/*    <a>Nashville</a>*/}
-                        {/*</Button>*/}
-                        {/*<br/>*/}
-                        {/*<Button onClick={this.handleClick} style={this.state.quizButton[3]}*/}
-                        {/*        variant={"contained"}>*/}
-                        {/*    <Avatar sx={{ background: "white", color: "black",border: "1px black solid",width: 24, height: 24, marginRight: "15px"}} alt="D" src="/static/images/avatar/1.jpg" />*/}
-                        {/*    <a>Miami</a>*/}
-                        {/*</Button>*/}
+
                         <br/> <br/>
                     </Box>
                 </div>
