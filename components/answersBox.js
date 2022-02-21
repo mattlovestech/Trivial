@@ -40,7 +40,7 @@ export default function AnswersBox(props) {
         case 100:
             answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-                (<Button style={update[index]}
+                (<Button key={index}  style={update[index]}
                          variant={"contained"}>
                     <Avatar sx={{ background: update[index]["background"],
                         color: update[index]["color"],
@@ -59,7 +59,7 @@ export default function AnswersBox(props) {
         default:
             answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-                (<Button onClick={() => progress === 100} id="linkid"  style={quizButton[index]}
+                (<Button key={index} onClick={() => progress === 100} id="linkid"  style={quizButton[index]}
                          variant={"contained"}>
                     <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
                     {answers[index]}

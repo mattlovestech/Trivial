@@ -12,7 +12,7 @@ export default function QuizNavBar() {
                 justifyContent="space-between"
                 alignItems="center" spacing={2}>
             <Avatar alt="Remy Sharp" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/atlanta-georgia-downtown-city-skyline-cavan-images.jpg" />
-            <h5><small>@randomUser's Quiz</small></h5>
+            <h5><small>@randomUsers Quiz</small></h5>
             <MoreHorizIcon/>
         </Stack>
     );
