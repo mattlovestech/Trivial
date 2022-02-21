@@ -49,7 +49,17 @@ export default function Quiz() {
             tonalOffset: 0.2,
         },
     });
+    const [progress, setProgress] = React.useState(1);
 
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((prevProgress) => (prevProgress >= 100 ? 1 : prevProgress + 1));
+        }, 50);
+        console.log(progress)
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
     return (
         <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`,
             height: "100vh"
@@ -60,7 +70,7 @@ export default function Quiz() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <br/>
-            <LinearWithValueLabel/>
+            <LinearWithValueLabel progress={progress}/>
             <br/>
             <QuizNavBar/>
 
