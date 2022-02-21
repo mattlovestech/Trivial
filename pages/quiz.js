@@ -18,8 +18,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export default function Quiz() {
     const data = [
-        'https://media3.giphy.com/media/Z69UDgjfRMjsY/giphy.gif?cid=ecf05e47b75zu0hixuugha9hr9hanmrdgfgw4jvgct01ffvt&rid=giphy.gif&ct=g',
-        "https://media4.giphy.com/media/kqBmbzAA3hBwb6Aw42/giphy.gif?cid=ecf05e47196j4zsr9mx463mgv2sjufr2k9q6q93f80kcb4os&rid=giphy.gif&ct=s"
+        'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
+        "https://media0.giphy.com/media/3M9DGwQfiT6uLKAq8a/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
 
     ]
 
