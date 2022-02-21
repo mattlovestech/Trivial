@@ -25,25 +25,23 @@ export default class AnswerBox extends React.Component {
                         background: "rgba(255, 255, 255, 0.3)",
                         borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
                         <br/>
-                        <Button className={blankQuizButton}
-
-                                variant={"contained"}
-                        >
+                        <Button className={"blankQuizButtonPlain"}
+                                variant={"contained"}>
                             <Avatar sx={{ background: "white", color: "black", border: "1px black solid", width: 24, height: 24, marginRight: "15px"}} alt="A" src="/static/images/avatar/1.jpg" />
                             <a>Atlanta</a>
                         </Button>
                         <br/>
-                        <Button  className={blankQuizButton} variant={"contained"}>
+                        <Button className={"blankQuizButtonPlain"} variant={"contained"}>
                             <Avatar sx={{ background: "white", color: "black",border: "1px black solid",width: 24, height: 24, marginRight: "15px"}} alt="B" src="/static/images/avatar/1.jpg" />
                             <a>Washington D.C.</a>
                         </Button>
                         <br/>
-                        <Button  className={blankQuizButton} variant={"contained"} >
+                        <Button className={"blankQuizButtonPlain"} variant={"contained"} >
                             <Avatar sx={{ background: "white", color: "black",border: "1px black solid",width: 24, height: 24, marginRight: "15px"}} alt="C" src="/static/images/avatar/1.jpg" />
                             <a>Houston</a>
                         </Button>
                         <br/>
-                        <Button  className={blankQuizButton} variant={"contained"} >
+                        <Button className={"blankQuizButtonPlain"} variant={"contained"} >
                             <Avatar sx={{ background: "white", color: "black",border: "1px black solid",width: 24, height: 24, marginRight: "15px"}} alt="D" src="/static/images/avatar/1.jpg" />
                             <a>Houston</a>
                         </Button>
