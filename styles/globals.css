@@ -35,8 +35,8 @@ progress::-moz-progress-bar {
   width: 75%;
   justify-content: flex-start;
   border-radius:25px;
-  background: white;
-  color: black;
+  background: white !important;
+  color: black !important;
 }
 
 .blankQuizButtonCorrect {
@@ -54,5 +54,5 @@ progress::-moz-progress-bar {
   justify-content: flex-start;
   border-radius:25px;
   background: darkred;
-  color: white;
+  color: white !important;
 }
