@@ -56,7 +56,7 @@ export default function Quiz() {
     React.useEffect(() => {
         const timer = setInterval(() => {
             setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 1));
-        }, 150);
+        }, 100);
         console.log(progress)
         return () => {
             clearInterval(timer);

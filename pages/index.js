@@ -11,6 +11,7 @@ import Stack from "@mui/material/Stack";
 import QuizNavBar from "../components/quizNavBar";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import GetStartedFlow from "../components/getStartedFlow";
 
 export default function Home() {
   const data = [
@@ -25,50 +26,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <br/>
-      <LinearWithValueLabel/>
+      <div style={{opacity: .2}}> <LinearWithValueLabel /> </div>
+
       <br/>
       <QuizNavBar/>
 
-      <main className={styles.main}>
 
 
-        <h1 className={styles.title}>
-          Create a shareable quizzes
-        </h1>
+    <br/>
+        <div style={{textAlign: "center"}}>
 
-          <br/>
-        <Button className={styles.landingButton} variant={"contained"} href={"/quiz"}>Get Started</Button>
-       <br/>
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+            <h1 className={styles.title}>
+                Create a shareable quizzes
+                <br/>
+            </h1>
+            <Button className={styles.landingButton} variant={"contained"} href={"/quiz"}>Get Started</Button>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
-      </main>
+
+
+
+
+        <br/>
+        <br/>
+        <GetStartedFlow/>
+
+
 
       <footer className={styles.footer}>
 
