@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import styles from '../styles/Home.module.css'
+import styles from './Home.module.css'
 import AnswerBox from "../components/answerBox";
 import ProgressTopBar from "../components/progress";
 import LinearWithValueLabel from "../components/progress";
@@ -34,12 +34,13 @@ export default function Home() {
 
 
     <br/>
-        <div style={{textAlign: "center"}}>
+        <div style={{textAlign: "center", background: "rgba(255,255,255,0.3)", borderRadius: "25px"}}>
 
             <h1 className={styles.title}>
                 Create a shareable quizzes
                 <br/>
             </h1>
+            <br/>
             <Button className={styles.landingButton} variant={"contained"} href={"/quiz"}>Get Started</Button>
 
         </div>
