@@ -10,6 +10,18 @@ import Typography from '@mui/material/Typography';
 import AnswersBox, {blankQuizButton} from "./answersBox";
 import Avatar from "@mui/material/Avatar";
 import Input from "@mui/material/Input";
+import {Stack} from "@mui/material";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import {
+    ChangeCircle,
+    ChangeCircleOutlined, Circle,
+    CircleNotificationsRounded,
+    Edit,
+    EditAttributesRounded
+} from "@mui/icons-material";
+import styles from "../styles/Home.module.css";
+const data = [
+"https://media4.giphy.com/media/gIODGWDBuG5AWlUExJ/giphy.gif?cid=ecf05e47yaanaf96jfkn3u36mzdwqlj48am2ouy6jx1f0z8n&rid=giphy.gif&ct=g"]
 const answersList = Array(~~(4)).fill(4).map( (key,index) =>
 
     (<Button key={index} style={blankQuizButton}
@@ -29,7 +41,7 @@ const answersList = Array(~~(4)).fill(4).map( (key,index) =>
 
 
 )
-const answers = (
+const answerBox = (
     <div style={{marginLeft: "10%", marginRight: "10%"}}>
         <Box style={{color: "white", padding: "5px",textAlign: "center",
             background: "rgba(171, 71, 188, 1)",
@@ -55,29 +67,65 @@ const answers = (
     </div>
     )
 
+const designBox =
+
+    (
+        <>
+
+            <Stack  style={{background: "rgba(0,0,0,0.01)", color: "#AB47BC", borderRadius: "25px", paddingRight: "10px"}} direction="row"
+                    justifyContent='center'
+                    alignItems="left" spacing={2}>
+                <Button color={"secondary"} variant={"outlined"} size={"sm"}>
+                     color
+                    <Avatar sx={{ color: "#AB47BC", background: "transparent" }}>
+                        <Circle />
+                    </Avatar>
+                </Button>
+                <Button color={"secondary"} variant={"contained"} size={"sm"}>
+                    background
+                    <Avatar sx={{ color: "white", background: "transparent"}}>
+                        <Edit />
+                    </Avatar>
+                </Button>
+
+            </Stack>
+            <br/>
+            <div style={{backgroundImage:`url(` + data[0] +`)`,
+                height: "450px"
+            }}>
+                <br/>
+                <br/>
+        {answerBox}
+        <br/>
+        <br/>
+            </div>
+        </>
+    )
+
+
 
 
 
 const steps = [
     {
         label: 'Info: Choose your question and set your answers',
-        description: 'Choose a question with up to 20 characters and up to 4 answers.',
-        component: answers
+        description: 'See an example...Choose a question with up to 20 characters and up to 4 answers.',
+        component: answerBox
     ,
     },
     {
         label: 'Style: Select background and colors',
         description:
             'An ad group contains one or more ads which target a shared set of keywords.',
-        component: answers
+        component: designBox
     },
     {
-        label: 'Publish: Name your quiz and launch it',
+        label: 'Design: Name your quiz and launch it',
         description: `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads using features like ad extensions.
               If you run into any problems with your ads, find out how to tell if
               they're running and how to resolve approval issues.`,
-        component: answers
+        component: <Input/>
     },
 ];
 
@@ -137,7 +185,7 @@ export default function GetStartedFlow() {
                                         onClick={handleNext}
                                         sx={{ mt: 1, mr: 1 }}
                                     >
-                                        {index === steps.length - 1 ? 'Finish' : 'Continue'}
+                                        {index === steps.length - 1 ? 'Finish' : 'Save & Continue'}
                                     </Button>
                                     <Button
                                         disabled={index === 0}

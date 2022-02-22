@@ -15,9 +15,7 @@ import GetStartedFlow from "../components/getStartedFlow";
 import {Typography} from "@mui/material";
 
 export default function Home() {
-  const data = [
-"https://www.wallpapersun.com/wp-content/uploads/2020/10/White-Wallpaper-7.jpg"
-  ]
+
   return (
     // <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`}}>
         <div className={styles.container}>
