@@ -76,7 +76,7 @@ export default class AnswerBox extends React.Component {
 
         const answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-             (<Button key={index}  onClick={this.handleClick} style={this.state.quizButton[index]}
+             (<Button key={index} onClick={this.handleClick} style={this.state.quizButton[index]}
                             variant={"contained"}>
                 <Avatar sx={{ background: this.state.quizButton[index]["background"], color: this.state.quizButton[index]["color"], border: this.state.quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
                 {this.state.answers[index]}

@@ -39,9 +39,9 @@ export default function Home() {
         <div style={{textAlign: "center",  borderRadius: "25px"}}>
 
             <h1 className={styles.title}>
-                Social media style quizzes, but you're in control
+                {"Social media style quizzes, but you're in control"}
             </h1>
-            <a className={styles.description}>Create your own social media style quizzes that are shareable and you get to see all the data</a>
+            <a className={styles.description}>Create social media style quizzes that can be shared anywhere, and analyze the results</a>
             <br/>
             <br/>
             <Button color={"secondary"} variant={"contained"} href={"/quiz"}>Create My Quiz</Button>

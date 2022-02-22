@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button} from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-const blankQuizButton = {
+export const blankQuizButton = {
     marginBottom: "15px",
     width: "75%",
     justifyContent:" flex-start",
@@ -10,7 +10,7 @@ const blankQuizButton = {
     border: "1px black solid",
     color: "black"
 }
-const correctQuizButton = {
+export const correctQuizButton = {
     marginBottom: "15px",
     width: "75%",
     justifyContent:" flex-start",
@@ -18,7 +18,7 @@ const correctQuizButton = {
     background: "darkgreen",
 
 }
-const incorrectQuizButton = {
+export const incorrectQuizButton = {
     marginBottom: "15px",
     width: "75%",
     justifyContent:" flex-start",
@@ -34,45 +34,81 @@ export default function AnswersBox(props) {
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
     let answers = ["Nashville", "Atlanta", "Georgia City", "Savannah" ]
-    let progress = props["progress"]
-
-    switch (props["progress"]) {
-        case 100:
-            answers = Array(~~(4)).fill(4).map( (key,index) =>
-
-                (<Button key={index}  style={update[index]}
-                         variant={"contained"}>
-                    <Avatar sx={{ background: update[index]["background"],
-                        color: update[index]["color"],
-                        border:update[index]["border"],
-                        width: 24,
-                        height: 24,
-                        marginRight: "15px"}}
-                        alt={String.fromCharCode(65 + index)}
-                        src="/static/images/avatar/1.jpg" />
-                    {answers[index]}
-                </Button>)
-
-
-            )
-            break;
-        default:
-            answers = Array(~~(4)).fill(4).map( (key,index) =>
-
-                (<Button key={index} onClick={() => progress === 100} id="linkid"  style={quizButton[index]}
-                         variant={"contained"}>
-                    <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
-                    {answers[index]}
-                </Button>)
-
-
-            )
-            break;
+    let progress;
+    let finish = "blank"
+    function progressSet() {
+       setCount(1)
+        progress = 100
+        console.log(finish)
     }
+    if (progress === 100 || count === 1) {
+                answers = Array(~~(4)).fill(4).map( (key,index) =>
+
+                    (<Button key={index}  style={update[index]}
+                             variant={"contained"}>
+                        <Avatar sx={{ background: update[index]["background"],
+                            color: update[index]["color"],
+                            border:update[index]["border"],
+                            width: 24,
+                            height: 24,
+                            marginRight: "15px"}}
+                            alt={String.fromCharCode(65 + index)}
+                            src="/static/images/avatar/1.jpg" />
+                        {answers[index]}
+
+                    </Button>)
+                )
+    } else {
+        answers = Array(~~(4)).fill(4).map( (key,index) =>
+
+                    (<Button key={index} onClick={progressSet}   style={quizButton[index]}
+                             variant={"contained"}>
+                        <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
+                        {answers[index]}
+                    </Button>)
+
+
+                )
+    }
+    // switch (progress) {
+    //     case 100:
+    //         answers = Array(~~(4)).fill(4).map( (key,index) =>
+    //
+    //             (<Button key={index}  style={update[index]}
+    //                      variant={"contained"}>
+    //                 <Avatar sx={{ background: update[index]["background"],
+    //                     color: update[index]["color"],
+    //                     border:update[index]["border"],
+    //                     width: 24,
+    //                     height: 24,
+    //                     marginRight: "15px"}}
+    //                     alt={String.fromCharCode(65 + index)}
+    //                     src="/static/images/avatar/1.jpg" />
+    //                 {answers[index]}
+    //                 aa
+    //             </Button>)
+    //
+    //
+    //         )
+    //         break;
+    //     default:
+    //         answers = Array(~~(4)).fill(4).map( (key,index) =>
+    //
+    //             (<Button key={index} onClick={progressSet}   style={quizButton[index]}
+    //                      variant={"contained"}>
+    //                 <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
+    //                 {answers[index]}
+    //             </Button>)
+    //
+    //
+    //         )
+    //
+    // }
     return (
       <>
 
             {answers}
+          {/*{progress}*/}
 </>
     )
 }

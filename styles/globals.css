@@ -56,3 +56,9 @@ progress::-moz-progress-bar {
   background: darkred;
   color: white !important;
 }
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #ab47bc
+}
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: #ab47bc
+}
