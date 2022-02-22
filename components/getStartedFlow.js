@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import AnswersBox, {blankQuizButton} from "./answersBox";
 import Avatar from "@mui/material/Avatar";
 import Input from "@mui/material/Input";
-const answers = Array(~~(4)).fill(4).map( (key,index) =>
+const answersList = Array(~~(4)).fill(4).map( (key,index) =>
 
     (<Button key={index} style={blankQuizButton}
              variant={"contained"}>
@@ -29,23 +29,55 @@ const answers = Array(~~(4)).fill(4).map( (key,index) =>
 
 
 )
+const answers = (
+    <div style={{marginLeft: "10%", marginRight: "10%"}}>
+        <Box style={{color: "white", padding: "5px",textAlign: "center",
+            background: "rgba(171, 71, 188, 1)",
+            borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
+            <h3>
+                What year were we founded...
+            </h3>
+        </Box>
+        <Box style={{textAlign: "center",
+            // backgroundImage:`url(` + data[0] +`)`,
+            background: "rgba(171, 71, 188, .1)",
+            // border: "1px solid  rgba(171, 71, 188, 1)",
+            borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
+            <br/>
+
+            { answersList }
+
+            <br/> <br/>
+        </Box>
+
+        <br/>
+        <br/>
+    </div>
+    )
+
+
+
+
 const steps = [
     {
-        label: 'Choose your question and set your answers',
-        description: answers
+        label: 'Info: Choose your question and set your answers',
+        description: 'Choose a question with up to 20 characters and up to 4 answers.',
+        component: answers
     ,
     },
     {
-        label: 'Create an ad group',
+        label: 'Style: Select background and colors',
         description:
             'An ad group contains one or more ads which target a shared set of keywords.',
+        component: answers
     },
     {
-        label: 'Create an ad',
+        label: 'Publish: Name your quiz and launch it',
         description: `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads using features like ad extensions.
               If you run into any problems with your ads, find out how to tell if
               they're running and how to resolve approval issues.`,
+        component: answers
     },
 ];
 
@@ -80,31 +112,22 @@ export default function GetStartedFlow() {
                             {step.label}
                         </StepLabel>
                         <StepContent>
-                            <Typography>An ad group contains one or more ads which target a shared set of keywords.</Typography>
+                            <Typography> {step.description}</Typography>
                             <br/>
-                            <div style={{marginLeft: "10%", marginRight: "10%"}}>
-                                <Box style={{color: "white", padding: "5px",textAlign: "center",
-                                    background: "rgba(171, 71, 188, 1)",
-                                    borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
-                                    <h3>
-                                        What year were we founded...
-                                    </h3>
-                                </Box>
+                            {step.component}
+                            {/*<div style={{marginLeft: "10%", marginRight: "10%"}}>*/}
+                            {/*    <Box style={{color: "white", padding: "5px",textAlign: "center",*/}
+                            {/*        background: "rgba(171, 71, 188, 1)",*/}
+                            {/*        borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>*/}
+                            {/*        <h3>*/}
+                            {/*            What year were we founded...*/}
+                            {/*        </h3>*/}
+                            {/*    </Box>*/}
 
-                                <Box style={{textAlign: "center",
-                                   // backgroundImage:`url(` + data[0] +`)`,
-                                    background: "rgba(171, 71, 188, .1)",
-                                   // border: "1px solid  rgba(171, 71, 188, 1)",
-                                    borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
-                                    <br/>
 
-                                    <Typography>{step.description}</Typography>
-
-                                    <br/> <br/>
-                                </Box>
-                                <br/>
-                                <br/>
-                            </div>
+                            {/*    <br/>*/}
+                            {/*    <br/>*/}
+                            {/*</div>*/}
 
                             <Box sx={{ mb: 2 }}>
                                 <div>

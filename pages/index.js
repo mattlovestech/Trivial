@@ -59,7 +59,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
 
-          Create by @mattlovestech with love
+          Created by @mattlovestech with love 🥰
 
 
       </footer>
