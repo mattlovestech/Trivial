@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import styles from './Home.module.css'
+import styles from '../styles/Home.module.css'
 import AnswerBox from "../components/answerBox";
 import ProgressTopBar from "../components/progress";
 import LinearWithValueLabel from "../components/progress";

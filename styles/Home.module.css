@@ -1,7 +1,8 @@
 .container {
   padding: 0 2rem;
-  /*background-image: url('https://media1.giphy.com/media/pOLspHmrKmQmc/giphy.gif?cid=ecf05e47mt0ym24xu07n7p83r1ce9fumsapizevxgxov16d0&rid=giphy.gif&ct=g');*/
+  /*background-image: url('https://previews.123rf.com/images/bestgreenscreen/bestgreenscreen1507/bestgreenscreen150701056/42157151-%EB%88%88-%EB%8D%AE%EC%9D%B8-%EC%82%B0-%EC%82%B0-%ED%94%BC%ED%81%AC-%ED%9D%B0%EC%83%89-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B5%AC%EB%B6%84.jpg');*/
   background-size: cover;
+  background-color: ghostwhite;
   height: 100%;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: #0070f3 !Important;
   text-decoration: none;
 }
 
@@ -46,19 +47,24 @@
   margin: 0;
   line-height: 1.25;
   font-size: 3rem;
+color: #ab47bc
 
 }
 
 .title,
 .description {
   text-align: center;
+  margin-bottom: 20px;
+
 
 }
 
 .description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+
+  line-height: 1.25;
+  font-size: 1.3rem;
+
+  color: grey;
 }
 
 .code {

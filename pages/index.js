@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import styles from './Home.module.css'
+import styles from '../styles/Home.module.css'
 import AnswerBox from "../components/answerBox";
 import ProgressTopBar from "../components/progress";
 import LinearWithValueLabel from "../components/progress";
@@ -12,15 +12,15 @@ import QuizNavBar from "../components/quizNavBar";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import GetStartedFlow from "../components/getStartedFlow";
+import {Typography} from "@mui/material";
 
 export default function Home() {
   const data = [
-  'https://media2.giphy.com/media/qhJoLbOQQTKLE0ManR/giphy.gif?cid=ecf05e47s28zu41823916raq6nhi2913mxen2j36wuyfexup&rid=giphy.gif&ct=g'
-
+"https://www.wallpapersun.com/wp-content/uploads/2020/10/White-Wallpaper-7.jpg"
   ]
   return (
-    <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`}}>
-        {/*<div className={styles.container} style={{background:"white"}}>*/}
+    // <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`}}>
+        <div className={styles.container}>
 
         <Head>
         <title>Trivial</title>
@@ -39,11 +39,12 @@ export default function Home() {
         <div style={{textAlign: "center",  borderRadius: "25px"}}>
 
             <h1 className={styles.title}>
-                Create a shareable quizzes
-                <br/>
+                Social media style quizzes, but you're in control
             </h1>
+            <a className={styles.description}>Create your own social media style quizzes that are shareable and you get to see all the data</a>
             <br/>
-            <Button className={styles.landingButton} variant={"contained"} href={"/quiz"}>Get Started</Button>
+            <br/>
+            <Button color={"secondary"} variant={"contained"} href={"/quiz"}>Create My Quiz</Button>
 
         </div>
 
