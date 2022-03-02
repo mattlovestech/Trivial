@@ -13,6 +13,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import GetStartedFlow from "../components/getStartedFlow";
 import {Typography} from "@mui/material";
+import Quiz from "./quiz";
 
 export default function Home() {
 
@@ -52,6 +53,7 @@ export default function Home() {
         <br/>
         <br/>
         <GetStartedFlow/>
+        <Quiz/>
 
 
 

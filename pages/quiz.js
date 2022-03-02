@@ -13,21 +13,21 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AnswersBox from "../components/answersBox";
+import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../components/answersBox";
 import Box from "@mui/material/Box";
+import {Create} from "@mui/icons-material";
 
 
 
 export default function Quiz() {
+    let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
+    let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
+
     const data = [
         'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
         "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
 
     ]
-
-
-
-
     const theme = createTheme({
         palette: {
             primary: {
@@ -52,6 +52,8 @@ export default function Quiz() {
         },
     });
     const [progress, setProgress] = React.useState(1);
+    let answers;
+    let results = ["Nashville", "Atlanta", "Georgia City", "Savannah" ]
 
     React.useEffect(() => {
         const timer = setInterval(() => {
@@ -62,6 +64,41 @@ export default function Quiz() {
             clearInterval(timer);
         };
     }, []);
+    function progressSet() {
+
+        setProgress(100)
+
+    }
+    if (progress === 100) {
+        answers = Array(~~(4)).fill(4).map( (key,index) =>
+
+            (<Button key={index}  style={update[index]}
+                     variant={"contained"}>
+                <Avatar sx={{ background: update[index]["background"],
+                    color: update[index]["color"],
+                    border:update[index]["border"],
+                    width: 24,
+                    height: 24,
+                    marginRight: "15px"}}
+                        alt={String.fromCharCode(65 + index)}
+                        src="/static/images/avatar/1.jpg" />
+                {results[index]}
+
+            </Button>)
+        )
+    } else {
+        answers = Array(~~(4)).fill(4).map( (key,index) =>
+
+            (<Button key={index} onClick={progressSet}   style={quizButton[index]}
+                     variant={"contained"}>
+                <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
+                {/*{answers[index]}*/}
+                {results[index]}
+            </Button>)
+
+
+        )
+    }
     return (
         <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`,
             height: "100vh"
@@ -87,7 +124,7 @@ export default function Quiz() {
 
 
             <div style={{marginLeft: "10%", marginRight: "10%"}}>
-                <Box style={{color: "white", padding: "5px",textAlign: "center",
+                <Box style={{color: "white", padding: "10px 5px 5px 10px",textAlign: "center",
                     background: "black",
                     borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
                     <h3>What city is the capital of Georgia?</h3>
@@ -96,11 +133,7 @@ export default function Quiz() {
                 <Box style={{textAlign: "center",
                     background: "rgba(255, 255, 255, 0.3)",
                     borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
-                    <br/>
-
-                    <AnswersBox progress={progress}/>
-
-                    <br/> <br/>
+                    <br/>{answers}<br/><br/>
                 </Box>
             </div>
 
@@ -112,15 +145,18 @@ export default function Quiz() {
                     spacing={2}
                 >
                     <ThemeProvider theme={theme}>
-                        <Button color={"primary"} variant="outlined" startIcon={<DeleteIcon />}>
-                            Delete
+                        <Button color={"primary"} variant="outlined" startIcon={<Create />}>
+                            Create Yours
                         </Button>
                         <Button variant="contained" endIcon={<SendIcon />}>
-                            Send
+                            Share Quiz
                         </Button>
                     </ThemeProvider>
+                    <br/>
+
 
             </Stack>
+
             </div>
 
         </div>
