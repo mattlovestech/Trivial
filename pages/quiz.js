@@ -57,16 +57,16 @@ export default function Quiz() {
     let results = ["Nashville", "Atlanta", "Georgia City", "Savannah" ]
     let ResultsArray = {
 
-           "deal777": {"answers":["Nashville", "Atlanta", "Georgia City", "Savannah" ],
+           "deal777": {"answers":["Texas", "New York", "Arizona", "California" ],
                "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
                "correctAnswer": "3",
                "question": "What state is Apple Corp. headquartered in?",
                "questionColor": "#000392"},
         "deal7771": {"answers":["Nashville", "Atlanta", "Georgia City", "Savannah" ],
             "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
-            "correctAnswer": "3",
-            "question": "What state is Apple Corp. headquartered in?",
-            "questionColor": "#000392"}
+            "correctAnswer": "1",
+            "question": "What is the capitol of Georgia?",
+            "questionColor": "red"}
 
     }
     React.useEffect(() => {
@@ -82,6 +82,10 @@ export default function Quiz() {
 
         setProgress(100)
 
+    }
+    function goBack() {
+        setProgress(-2)
+        setQuestionNumber(questionNumber - 1)
     }
     if (progress === 100) {
         answers = Array(~~(4)).fill(4).map( (key,index) =>
@@ -140,7 +144,7 @@ export default function Quiz() {
                     justifyContent="space-between"
                     alignItems="center"
                     spacing={2}>
-                <ArrowBackIos onClick={() => setProgress(-1)} style={{color: "white", fontSize: "20px"}}/>
+                <ArrowBackIos onClick={() => goBack()} style={{color: "white", fontSize: "20px"}}/>
                 <div>
                     <Box style={{color: "white", padding: "5px 15px 5px 15px",textAlign: "center",
                         background: "black",
@@ -154,7 +158,7 @@ export default function Quiz() {
                         <br/>{answers}<br/><br/>
                     </Box>
                 </div>
-                    <ArrowForwardIos onClick={() => setProgress(-1)} style={{color: "white", fontSize: "20px"}}/>
+                    <ArrowForwardIos onClick={() => setQuestionNumber(questionNumber + 1)} style={{color: "white", fontSize: "20px"}}/>
                 </Stack>
             </div>
     <br/>
