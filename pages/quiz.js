@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../components/answersBox";
 import Box from "@mui/material/Box";
-import {Create} from "@mui/icons-material";
+import {ArrowBack, ArrowBackIos, ArrowForward, ArrowForwardIos, ArrowRight, Create} from "@mui/icons-material";
 
 
 
@@ -52,9 +52,23 @@ export default function Quiz() {
         },
     });
     const [progress, setProgress] = React.useState(1);
+    const [questionNumber, setQuestionNumber] = React.useState(0);
     let answers;
     let results = ["Nashville", "Atlanta", "Georgia City", "Savannah" ]
+    let ResultsArray = {
 
+           "deal777": {"answers":["Nashville", "Atlanta", "Georgia City", "Savannah" ],
+               "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
+               "correctAnswer": "3",
+               "question": "What state is Apple Corp. headquartered in?",
+               "questionColor": "#000392"},
+        "deal7771": {"answers":["Nashville", "Atlanta", "Georgia City", "Savannah" ],
+            "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
+            "correctAnswer": "3",
+            "question": "What state is Apple Corp. headquartered in?",
+            "questionColor": "#000392"}
+
+    }
     React.useEffect(() => {
         const timer = setInterval(() => {
             setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 1));
@@ -99,7 +113,9 @@ export default function Quiz() {
 
         )
     }
+
     return (
+
         <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`,
             height: "100vh"
         }}>
@@ -111,33 +127,37 @@ export default function Quiz() {
             <br/>
             <LinearWithValueLabel progress={progress}/>
             <br/>
-
             <QuizNavBar/>
-
-
             <div  style={{textAlign: "center"}}>
                 <img height="140px"
 
                      alt="hbcu gif text"
                      src={data[1]}/>
             </div>
-
-
-            <div style={{marginLeft: "10%", marginRight: "10%"}}>
-                <Box style={{color: "white", padding: "10px 5px 5px 10px",textAlign: "center",
-                    background: "black",
-                    borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
-                    <h3>What city is the capital of Georgia?</h3>
-                </Box>
-
-                <Box style={{textAlign: "center",
-                    background: "rgba(255, 255, 255, 0.3)",
-                    borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
-                    <br/>{answers}<br/><br/>
-                </Box>
+            <div style={{marginLeft: "0%", marginRight: "0%"}}>
+                <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}>
+                <ArrowBackIos onClick={() => setProgress(-1)} style={{color: "white", fontSize: "20px"}}/>
+                <div>
+                    <Box style={{color: "white", padding: "5px 15px 5px 15px",textAlign: "center",
+                        background: "black",
+                        borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
+                        {/*<h3>{ResultsArray["deal777"]["question"]}</h3>*/}
+                        <h3>{ResultsArray[Object.keys(ResultsArray)[questionNumber]]["question"]}</h3>
+                    </Box>
+                    <Box style={{textAlign: "center",
+                        background: "rgba(255, 255, 255, 0.3)",
+                        borderBottomLeftRadius: "25px", borderBottomRightRadius: "25px"}}>
+                        <br/>{answers}<br/><br/>
+                    </Box>
+                </div>
+                    <ArrowForwardIos onClick={() => setProgress(-1)} style={{color: "white", fontSize: "20px"}}/>
+                </Stack>
             </div>
-
-            <br/>
+    <br/>
             <div style={{textAlign: "center"}}>
                 <Stack
                     direction="row"
@@ -154,8 +174,10 @@ export default function Quiz() {
                     </ThemeProvider>
                     <br/>
 
-
+                    aa
             </Stack>
+
+
 
             </div>
 
