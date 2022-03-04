@@ -2,6 +2,7 @@
 import Quiz from "../quiz";
 import * as React from "react";
 import {useRouter} from "next/router";
+import Head from "next/head";
 
 function QuizPage() {
     const router = useRouter()
@@ -72,7 +73,15 @@ function QuizPage() {
     }
 
     return (
-        <Quiz resultsArray={data}/>
+        <div>
+            <Head>
+                <title>{quizID}'s Trivial Quiz</title>
+                <meta name="description" content={"Checkout this quiz that " + quizID + " created using Trivial"} />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Quiz resultsArray={data}/>
+        </div>
+
     )
 }
 
