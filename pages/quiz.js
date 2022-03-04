@@ -83,20 +83,20 @@ export default function Quiz() {
         "deal7771": {
             "answers": {
                 "0": {
-                    "answer": "New York",
+                    "answer": "Albany",
                     "correct": false
                 },
                 "1": {
-                    "answer": "Arizona",
+                    "answer": "Georgia City",
                     "correct": false
                 },
                 "2": {
-                    "answer": "California",
-                    "correct": true
+                    "answer": "Augusta",
+                    "correct": false
                 },
                 "3": {
                     "answer": "Atlanta",
-                    "correct": false
+                    "correct": true
                 }
             },
             "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
@@ -118,6 +118,10 @@ export default function Quiz() {
 
         setProgress(100)
 
+    }
+    function goForward() {
+        setProgress(0)
+        setQuestionNumber(questionNumber + 1)
     }
     function goBack() {
         switch(progress) {
@@ -216,7 +220,7 @@ if (correctBool) {
                         <br/>{answers}<br/><br/>
                     </Box>
                 </div>
-                    <ArrowForwardIos onClick={() => setQuestionNumber(questionNumber + 1)} style={{color: "white", fontSize: "20px"}}/>
+                    <ArrowForwardIos onClick={() => goForward()} style={{color: "white", fontSize: "20px"}}/>
                 </Stack>
             </div>
     <br/>
