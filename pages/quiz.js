@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../components/answersBox";
 import Box from "@mui/material/Box";
 import {ArrowBack, ArrowBackIos, ArrowForward, ArrowForwardIos, ArrowRight, Create} from "@mui/icons-material";
+import Grid from "@mui/material/Grid";
 
 
 
@@ -131,7 +132,8 @@ export default function Quiz() {
             <br/>
             <LinearWithValueLabel progress={progress}/>
             <br/>
-            <QuizNavBar/>
+            <QuizNavBar quizName="@mattlovestech's Quiz"/>
+
             <div  style={{textAlign: "center"}}>
                 <img height="140px"
 
@@ -177,8 +179,6 @@ export default function Quiz() {
                         </Button>
                     </ThemeProvider>
                     <br/>
-
-                    aa
             </Stack>
 
 
