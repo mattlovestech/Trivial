@@ -47,8 +47,8 @@ export default function Home() {
             <br/>
             <br/>
         </div>
-            <div style={{marginRight: "10%",
-                marginLeft: "10%",
+            <div style={{marginRight: "1%",
+                marginLeft: "1%",
 
                 textAlign: "center"}}>
                 <Quiz resultsArray={{
