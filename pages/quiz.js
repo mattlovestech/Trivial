@@ -85,8 +85,25 @@ export default function Quiz() {
 
     }
     function goBack() {
-        setProgress(-2)
-        setQuestionNumber(questionNumber - 1)
+
+        switch(progress) {
+            case -2:
+            case -1:
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                setQuestionNumber(questionNumber - 1)
+                break;
+            default:
+                setProgress(-2)
+        }
+
+
     }
     if (progress === 100) {
         answers = Array(~~(4)).fill(4).map( (key,index) =>
@@ -101,7 +118,7 @@ export default function Quiz() {
                     marginRight: "15px"}}
                         alt={String.fromCharCode(65 + index)}
                         src="/static/images/avatar/1.jpg" />
-                {results[index]}
+                {ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]}
 
             </Button>)
         )
@@ -112,7 +129,7 @@ export default function Quiz() {
                      variant={"contained"}>
                 <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
                 {/*{answers[index]}*/}
-                {results[index]}
+                {ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]}
             </Button>)
 
 
@@ -146,7 +163,7 @@ export default function Quiz() {
                     justifyContent="space-between"
                     alignItems="center"
                     spacing={2}>
-                <ArrowBackIos onClick={() => goBack()} style={{color: "white", fontSize: "20px"}}/>
+                <ArrowBackIos  onClick={() => goBack()} style={{color: "white", fontSize: "20px"}}/>
                 <div>
                     <Box style={{color: "white", padding: "5px 15px 5px 15px",textAlign: "center",
                         background: "black",
