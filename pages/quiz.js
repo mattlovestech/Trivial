@@ -23,7 +23,7 @@ import Grid from "@mui/material/Grid";
 export default function Quiz() {
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
-
+    let buttonStyle = incorrectQuizButton
     const data = [
         'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
         "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
@@ -55,15 +55,50 @@ export default function Quiz() {
     const [progress, setProgress] = React.useState(1);
     const [questionNumber, setQuestionNumber] = React.useState(0);
     let answers;
-    let results = ["Nashville", "Atlanta", "Georgia City", "Savannah" ]
     let ResultsArray = {
 
-           "deal777": {"answers":["Texas", "New York", "Arizona", "California" ],
+           "deal777": {
+               "answers": {
+                   "0": {
+                       "answer": "New York",
+                       "correct": false
+                   },
+                   "1": {
+                       "answer": "Arizona",
+                       "correct": false
+                   },
+                   "2": {
+                       "answer": "California",
+                       "correct": true
+                   },
+                   "3": {
+                       "answer": "Atlanta",
+                       "correct": false
+                   }
+               },
                "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
                "correctAnswer": "3",
                "question": "What state is Apple Corp. headquartered in?",
                "questionColor": "#000392"},
-        "deal7771": {"answers":["Nashville", "Atlanta", "Georgia City", "Savannah" ],
+        "deal7771": {
+            "answers": {
+                "0": {
+                    "answer": "New York",
+                    "correct": false
+                },
+                "1": {
+                    "answer": "Arizona",
+                    "correct": false
+                },
+                "2": {
+                    "answer": "California",
+                    "correct": true
+                },
+                "3": {
+                    "answer": "Atlanta",
+                    "correct": false
+                }
+            },
             "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
             "correctAnswer": "1",
             "question": "What is the capitol of Georgia?",
@@ -85,7 +120,6 @@ export default function Quiz() {
 
     }
     function goBack() {
-
         switch(progress) {
             case -2:
             case -1:
@@ -102,34 +136,39 @@ export default function Quiz() {
             default:
                 setProgress(-2)
         }
-
+    }
+    function handleStyle(correctBool) {
+if (correctBool) {
+    return correctQuizButton
+} else {
+    return incorrectQuizButton
+}
 
     }
     if (progress === 100) {
         answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-            (<Button key={index}  style={update[index]}
+            (<Button key={index} style={handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])}
                      variant={"contained"}>
-                <Avatar sx={{ background: update[index]["background"],
-                    color: update[index]["color"],
-                    border:update[index]["border"],
+                <Avatar sx={{ background: handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["background"],
+                    color: handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["color"],
+                    border: handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["border"],
                     width: 24,
                     height: 24,
                     marginRight: "15px"}}
                         alt={String.fromCharCode(65 + index)}
                         src="/static/images/avatar/1.jpg" />
-                {ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]}
-
+                {ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["answer"]}
             </Button>)
         )
     } else {
         answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-            (<Button key={index} onClick={progressSet}   style={quizButton[index]}
+            (<Button key={index} onClick={progressSet}   style={blankQuizButton}
                      variant={"contained"}>
                 <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
                 {/*{answers[index]}*/}
-                {ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]}
+                {ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["answer"]}
             </Button>)
 
 
