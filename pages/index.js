@@ -30,7 +30,7 @@ export default function Home() {
       <div style={{opacity: .2}}> <LinearWithValueLabel /> </div>
 
       <br/>
-      <QuizNavBar/>
+
 
 
 
@@ -44,16 +44,50 @@ export default function Home() {
             <br/>
             <br/>
             <Button color={"secondary"} variant={"contained"} href={"/quiz"}>Create My Quiz</Button>
-
+            <br/>
+            <br/>
         </div>
+            <div style={{marginRight: "10%",
+                marginLeft: "10%",
+
+                textAlign: "center"}}>
+                <Quiz resultsArray={{
+
+                    "deal777": {
+                        "answers": {
+                            "0": {
+                                "answer": "New York",
+                                "correct": false
+                            },
+                            "1": {
+                                "answer": "Arizona",
+                                "correct": false
+                            },
+                            "2": {
+                                "answer": "California",
+                                "correct": true
+                            },
+                            "3": {
+                                "answer": "New Mexico",
+                                "correct": false
+                            }
+                        },
+                        "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
+                        "correctAnswer": "3",
+                        "question": "What state is Apple Corp. headquartered in?",
+                        "questionColor": "#000392"}
+
+                }}/>
+            </div>
 
 
 
 
-        <br/>
+
+            <br/>
         <br/>
         <GetStartedFlow/>
-        <Quiz/>
+
 
 
 

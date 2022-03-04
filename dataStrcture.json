@@ -1,0 +1,50 @@
+{
+
+  "deal777": {
+    "answers": {
+      "0": {
+        "answer": "New York",
+        "correct": false
+      },
+      "1": {
+        "answer": "Arizona",
+        "correct": false
+      },
+      "2": {
+        "answer": "California",
+        "correct": true
+      },
+      "3": {
+        "answer": "New Mexico",
+        "correct": false
+      }
+    },
+    "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
+    "correctAnswer": "3",
+    "question": "What state is Apple Corp. headquartered in?",
+    "questionColor": "#000392"},
+  "deal7771": {
+    "answers": {
+      "0": {
+        "answer": "Albany",
+        "correct": false
+      },
+      "1": {
+        "answer": "Georgia City",
+        "correct": false
+      },
+      "2": {
+        "answer": "Augusta",
+        "correct": false
+      },
+      "3": {
+        "answer": "Atlanta",
+        "correct": true
+      }
+    },
+    "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
+    "correctAnswer": "1",
+    "question": "What is the capitol of Georgia?",
+    "questionColor": "red"}
+
+}

@@ -15,12 +15,69 @@ import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../components/answersBox";
 import Box from "@mui/material/Box";
-import {ArrowBack, ArrowBackIos, ArrowForward, ArrowForwardIos, ArrowRight, Create} from "@mui/icons-material";
+import {
+    ArrowBack,
+    ArrowBackIos,
+    ArrowForward,
+    ArrowForwardIos,
+    ArrowForwardIosOutlined, ArrowForwardIosRounded, ArrowForwardIosTwoTone,
+    ArrowRight,
+    Create
+} from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
 
+const standardArray = {
 
+    "deal777": {
+        "answers": {
+            "0": {
+                "answer": "New York",
+                "correct": false
+            },
+            "1": {
+                "answer": "Arizona",
+                "correct": false
+            },
+            "2": {
+                "answer": "California",
+                "correct": true
+            },
+            "3": {
+                "answer": "New Mexico",
+                "correct": false
+            }
+        },
+        "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
+        "correctAnswer": "3",
+        "question": "What state is Apple Corp. headquartered in?",
+        "questionColor": "#000392"},
+    "deal7771": {
+        "answers": {
+            "0": {
+                "answer": "Albany",
+                "correct": false
+            },
+            "1": {
+                "answer": "Georgia City",
+                "correct": false
+            },
+            "2": {
+                "answer": "Augusta",
+                "correct": false
+            },
+            "3": {
+                "answer": "Atlanta",
+                "correct": true
+            }
+        },
+        "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
+        "correctAnswer": "1",
+        "question": "What is the capitol of Georgia?",
+        "questionColor": "red"}
 
-export default function Quiz() {
+}
+
+export default function Quiz({resultsArray}) {
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
     let buttonStyle = incorrectQuizButton
@@ -55,56 +112,7 @@ export default function Quiz() {
     const [progress, setProgress] = React.useState(1);
     const [questionNumber, setQuestionNumber] = React.useState(0);
     let answers;
-    let ResultsArray = {
-
-           "deal777": {
-               "answers": {
-                   "0": {
-                       "answer": "New York",
-                       "correct": false
-                   },
-                   "1": {
-                       "answer": "Arizona",
-                       "correct": false
-                   },
-                   "2": {
-                       "answer": "California",
-                       "correct": true
-                   },
-                   "3": {
-                       "answer": "New Mexico",
-                       "correct": false
-                   }
-               },
-               "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
-               "correctAnswer": "3",
-               "question": "What state is Apple Corp. headquartered in?",
-               "questionColor": "#000392"},
-        "deal7771": {
-            "answers": {
-                "0": {
-                    "answer": "Albany",
-                    "correct": false
-                },
-                "1": {
-                    "answer": "Georgia City",
-                    "correct": false
-                },
-                "2": {
-                    "answer": "Augusta",
-                    "correct": false
-                },
-                "3": {
-                    "answer": "Atlanta",
-                    "correct": true
-                }
-            },
-            "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
-            "correctAnswer": "1",
-            "question": "What is the capitol of Georgia?",
-            "questionColor": "red"}
-
-    }
+    let ResultsArray = resultsArray || standardArray
     React.useEffect(() => {
         const timer = setInterval(() => {
             setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 1));
@@ -181,8 +189,10 @@ if (correctBool) {
 
     return (
 
-        <div className={styles.container} style={{backgroundImage:`url(` + ResultsArray[Object.keys(ResultsArray)[questionNumber]]["backgroundURL"] +`)`,
-            height: "100vh"
+        <div className={styles.container}
+             // onClick={() => alert("A")}
+             style={{backgroundImage:`url(` + ResultsArray[Object.keys(ResultsArray)[questionNumber]]["backgroundURL"] +`)`,
+                 height: "100vh"
         }}>
             <Head>
                 <title>Trivial</title>
@@ -193,20 +203,22 @@ if (correctBool) {
             <LinearWithValueLabel progress={progress}/>
             <br/>
             <QuizNavBar quizName="@mattlovestech's Quiz"/>
+            <br/>
+            <br/>
 
-            <div  style={{textAlign: "center", opacity: .01}}>
-                <img height="140px"
+            {/*<div  style={{textAlign: "center", opacity: .01}}>*/}
+            {/*    <img height="140px"*/}
 
-                     alt="hbcu gif text"
-                     src={data[1]}/>
-            </div>
+            {/*         alt="hbcu gif text"*/}
+            {/*         src={data[1]}/>*/}
+            {/*</div>*/}
             <div style={{marginLeft: "0%", marginRight: "0%"}}>
                 <Stack
                     direction="row"
                     justifyContent="space-between"
                     alignItems="center"
                     spacing={2}>
-                <ArrowBackIos  onClick={() => goBack()} style={{color: "white", fontSize: "20px"}}/>
+                <ArrowBackIos  onClick={() => goBack()} style={{color: "white", fontSize: "25px"}}/>
                 <div>
                     <Box style={{color: "white", padding: "5px 15px 5px 15px",textAlign: "center",
                         background: ResultsArray[Object.keys(ResultsArray)[questionNumber]]["questionColor"],
@@ -220,7 +232,8 @@ if (correctBool) {
                         <br/>{answers}<br/><br/>
                     </Box>
                 </div>
-                    <ArrowForwardIos onClick={() => goForward()} style={{color: "white", fontSize: "20px"}}/>
+
+                    <ArrowForwardIosTwoTone onClick={() => goForward()} style={{color: "white", fontSize: "25px"}}/>
                 </Stack>
             </div>
     <br/>
@@ -232,13 +245,13 @@ if (correctBool) {
                 >
                     <ThemeProvider theme={theme}>
                         <Button color={"primary"} variant="outlined" startIcon={<Create />}>
-                            Create Yours
+                            Create
                         </Button>
                         <Button variant="contained" endIcon={<SendIcon />}>
-                            Share Quiz
+                            Share
                         </Button>
                     </ThemeProvider>
-                    <br/>
+
             </Stack>
 
 
