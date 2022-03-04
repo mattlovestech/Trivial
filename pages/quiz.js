@@ -72,11 +72,11 @@ export default function Quiz() {
                        "correct": true
                    },
                    "3": {
-                       "answer": "Atlanta",
+                       "answer": "New Mexico",
                        "correct": false
                    }
                },
-               "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
+               "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
                "correctAnswer": "3",
                "question": "What state is Apple Corp. headquartered in?",
                "questionColor": "#000392"},
@@ -99,7 +99,7 @@ export default function Quiz() {
                     "correct": true
                 }
             },
-            "backgroundURL": "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s",
+            "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
             "correctAnswer": "1",
             "question": "What is the capitol of Georgia?",
             "questionColor": "red"}
@@ -181,7 +181,7 @@ if (correctBool) {
 
     return (
 
-        <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`,
+        <div className={styles.container} style={{backgroundImage:`url(` + ResultsArray[Object.keys(ResultsArray)[questionNumber]]["backgroundURL"] +`)`,
             height: "100vh"
         }}>
             <Head>
