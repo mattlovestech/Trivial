@@ -1,5 +1,5 @@
 
-import Quiz from "../quiz";
+import Quiz from "./quiz";
 import * as React from "react";
 import {useRouter} from "next/router";
 import Head from "next/head";

@@ -13,7 +13,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import GetStartedFlow from "../components/getStartedFlow";
 import {Typography} from "@mui/material";
-import Quiz from "./quiz";
+import Quiz from "./quiz/quiz";
 
 export default function Home() {
     let data = {

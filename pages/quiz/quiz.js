@@ -1,19 +1,19 @@
 import Head from 'next/head'
 
-import styles from '../styles/Home.module.css'
-import AnswerBox from "../components/answerBox";
-import ProgressTopBar from "../components/progress";
-import LinearWithValueLabel from "../components/progress";
+import styles from '../../styles/Home.module.css'
+import AnswerBox from "../../components/answerBox";
+import ProgressTopBar from "../../components/progress";
+import LinearWithValueLabel from "../../components/progress";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
-import QuizNavBar from "../components/quizNavBar";
+import QuizNavBar from "../../components/quizNavBar";
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../components/answersBox";
+import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../../components/answersBox";
 import Box from "@mui/material/Box";
 import {
     ArrowBack,
