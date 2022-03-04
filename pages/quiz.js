@@ -192,7 +192,7 @@ if (correctBool) {
         <div className={styles.container}
              // onClick={() => alert("A")}
              style={{backgroundImage:`url(` + ResultsArray[Object.keys(ResultsArray)[questionNumber]]["backgroundURL"] +`)`,
-                 height: "100vh"
+
         }}>
             <Head>
                 <title>Trivial</title>
