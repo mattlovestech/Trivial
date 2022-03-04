@@ -194,7 +194,7 @@ if (correctBool) {
             <br/>
             <QuizNavBar quizName="@mattlovestech's Quiz"/>
 
-            <div  style={{textAlign: "center"}}>
+            <div  style={{textAlign: "center", opacity: .01}}>
                 <img height="140px"
 
                      alt="hbcu gif text"
@@ -209,7 +209,7 @@ if (correctBool) {
                 <ArrowBackIos  onClick={() => goBack()} style={{color: "white", fontSize: "20px"}}/>
                 <div>
                     <Box style={{color: "white", padding: "5px 15px 5px 15px",textAlign: "center",
-                        background: "black",
+                        background: ResultsArray[Object.keys(ResultsArray)[questionNumber]]["questionColor"],
                         borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
                         {/*<h3>{ResultsArray["deal777"]["question"]}</h3>*/}
                         <h3>{ResultsArray[Object.keys(ResultsArray)[questionNumber]]["question"]}</h3>
