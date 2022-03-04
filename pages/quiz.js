@@ -127,25 +127,28 @@ export default function Quiz({resultsArray}) {
         setProgress(100)
 
     }
+   function updateQuestionNumber() {
+
+
+    }
+
     function goForward() {
-        setProgress(0)
-        setQuestionNumber(questionNumber + 1)
+        if (questionNumber >= 0 && questionNumber < (Object.keys(ResultsArray).length) - 1) {
+            console.log(questionNumber)
+
+            setQuestionNumber(questionNumber + 1)
+            setProgress(-2)
+
+        } else {
+            alert("no more questions in this quiz :(")
+        }
+
     }
     function goBack() {
-        switch(progress) {
-            case -2:
-            case -1:
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-                setQuestionNumber(questionNumber - 1)
-                break;
-            default:
+        if (progress < 7 && progress > -2 && questionNumber >= 1) {
+            setQuestionNumber(questionNumber - 1)
+
+        } else {
                 setProgress(-2)
         }
     }
@@ -192,6 +195,7 @@ if (correctBool) {
         <div className={styles.container}
              // onClick={() => alert("A")}
              style={{backgroundImage:`url(` + ResultsArray[Object.keys(ResultsArray)[questionNumber]]["backgroundURL"] +`)`,
+                 height: "100vh"
 
         }}>
             <Head>
@@ -202,7 +206,9 @@ if (correctBool) {
             <br/>
             <LinearWithValueLabel progress={progress}/>
             <br/>
-            <QuizNavBar quizName="@mattlovestech's Quiz"/>
+            <QuizNavBar
+                profileImageURL={ResultsArray[Object.keys(ResultsArray)[questionNumber]]["user"]["profileImageURL"]}
+                quizName={ResultsArray[Object.keys(ResultsArray)[questionNumber]]["user"]["name"]}/>
             <br/>
             <br/>
 

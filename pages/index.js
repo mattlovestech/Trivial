@@ -16,6 +16,33 @@ import {Typography} from "@mui/material";
 import Quiz from "./quiz";
 
 export default function Home() {
+    let data = {
+
+        "deal777": {
+            "answers": {
+                "0": {
+                    "answer": "New York",
+                    "correct": false
+                },
+                "1": {
+                    "answer": "Arizona",
+                    "correct": false
+                },
+                "2": {
+                    "answer": "California",
+                    "correct": true
+                },
+                "3": {
+                    "answer": "New Mexico",
+                    "correct": false
+                }
+            },
+            "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
+            "correctAnswer": "3",
+            "question": "What state is Apple Corp. headquartered in?",
+            "questionColor": "#000392"}
+
+    }
 
   return (
     // <div className={styles.container} style={{backgroundImage:`url(` + data[0] +`)`}}>
@@ -51,33 +78,7 @@ export default function Home() {
                 marginLeft: "1%",
 
                 textAlign: "center"}}>
-                <Quiz resultsArray={{
-
-                    "deal777": {
-                        "answers": {
-                            "0": {
-                                "answer": "New York",
-                                "correct": false
-                            },
-                            "1": {
-                                "answer": "Arizona",
-                                "correct": false
-                            },
-                            "2": {
-                                "answer": "California",
-                                "correct": true
-                            },
-                            "3": {
-                                "answer": "New Mexico",
-                                "correct": false
-                            }
-                        },
-                        "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
-                        "correctAnswer": "3",
-                        "question": "What state is Apple Corp. headquartered in?",
-                        "questionColor": "#000392"}
-
-                }}/>
+                <Quiz resultsArray={data}/>
             </div>
 
 
