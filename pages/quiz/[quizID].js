@@ -75,7 +75,7 @@ function QuizPage() {
     return (
         <div>
             <Head>
-                <title>{quizID}'s Trivial Quiz</title>
+                <title>{quizID} Trivial Quiz</title>
                 <meta name="description" content={"Checkout this quiz that " + quizID + " created using Trivial"} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
