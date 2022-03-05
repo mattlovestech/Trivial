@@ -133,11 +133,7 @@ export default function Quiz({resultsArray}) {
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
     let buttonStyle = incorrectQuizButton
-    // const data = [
-    //     'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
-    //     "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
-    //
-    // ]
+
     const theme = createTheme({
         palette: {
             primary: {
