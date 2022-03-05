@@ -4,9 +4,8 @@ import * as React from "react";
 import {useRouter} from "next/router";
 import Head from "next/head";
 
-function QuizPage() {
-    const router = useRouter()
-    const { quizID } = router.query
+function QuizPage({quizID}) {
+
     let data = {
         "deal7770": {
             "answers": {
@@ -113,6 +112,13 @@ function QuizPage() {
         </div>
 
     )
+}
+export async function getServerSideProps(req) {
+    const quizID = req.query.quizID
+
+    return {
+        props: {quizID }, // will be passed to the page component as props
+    }
 }
 
 export default QuizPage
