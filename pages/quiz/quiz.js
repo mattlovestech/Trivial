@@ -26,66 +26,81 @@ import {
 } from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
 
-const standardArray = {
 
-    "deal777": {
-        "answers": {
-            "0": {
-                "answer": "New York",
-                "correct": false
-            },
-            "1": {
-                "answer": "Arizona",
-                "correct": false
-            },
-            "2": {
-                "answer": "California",
-                "correct": true
-            },
-            "3": {
-                "answer": "New Mexico",
-                "correct": false
-            }
-        },
-        "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
-        "correctAnswer": "3",
-        "question": "What state is Apple Corp. headquartered in?",
-        "questionColor": "#000392"},
-    "deal7771": {
-        "answers": {
-            "0": {
-                "answer": "Albany",
-                "correct": false
-            },
-            "1": {
-                "answer": "Georgia City",
-                "correct": false
-            },
-            "2": {
-                "answer": "Augusta",
-                "correct": false
-            },
-            "3": {
-                "answer": "Atlanta",
-                "correct": true
-            }
-        },
-        "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
-        "correctAnswer": "1",
-        "question": "What is the capitol of Georgia?",
-        "questionColor": "red"}
-
-}
 
 export default function Quiz({resultsArray}) {
+    const standardArray = {
+
+        "deal777": {
+            "answers": {
+                "0": {
+                    "answer": "New York",
+                    "correct": false
+                },
+                "1": {
+                    "answer": "Arizona",
+                    "correct": false
+                },
+                "2": {
+                    "answer": "California",
+                    "correct": true
+                },
+                "3": {
+                    "answer": "New Mexico",
+                    "correct": false
+                }
+            },
+            "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
+            "correctAnswer": "3",
+            "question": "What state is Apple Corp. headquartered in?",
+            "questionColor": "#000392",
+            "user": {
+                "profileImageURL": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.18169-9/28059302_10204493246327835_2867238887703167492_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=w6lhQV8S39gAX_jxyIq&_nc_ht=scontent-atl3-1.xx&oh=00_AT9SfIg4_h18Zi3wAKCzglXVOki2r84lYk9Ac1ZGN4P7VA&oe=6248C9CE",
+                "name": "quizID",
+                "uid": "24905u4839",
+            }
+
+        },
+        "deal7771": {
+            "answers": {
+                "0": {
+                    "answer": "Albany",
+                    "correct": false
+                },
+                "1": {
+                    "answer": "Georgia City",
+                    "correct": false
+                },
+                "2": {
+                    "answer": "Augusta",
+                    "correct": false
+                },
+                "3": {
+                    "answer": "Atlanta",
+                    "correct": true
+                }
+            },
+            "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
+            "correctAnswer": "1",
+            "question": "What is the capitol of Georgia?",
+            "questionColor": "red",
+            "user": {
+                "profileImageURL": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.18169-9/28059302_10204493246327835_2867238887703167492_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=w6lhQV8S39gAX_jxyIq&_nc_ht=scontent-atl3-1.xx&oh=00_AT9SfIg4_h18Zi3wAKCzglXVOki2r84lYk9Ac1ZGN4P7VA&oe=6248C9CE",
+                "name": "quizID",
+                "uid": "24905u4839",
+            }
+
+        }
+
+    }
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
     let buttonStyle = incorrectQuizButton
-    const data = [
-        'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
-        "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
-
-    ]
+    // const data = [
+    //     'http://tile.loc.gov/image-services/iiif/service:pnp:highsm:47500:47503/full/pct:25/0/default.jpg',
+    //     "https://media4.giphy.com/media/QIjTUK2dJUUTFCGbCN/giphy.gif?cid=ecf05e47puiw7fxmku2hm4x6qjmsvtjlnxuv3tadmccdi7zn&rid=giphy.gif&ct=s"
+    //
+    // ]
     const theme = createTheme({
         palette: {
             primary: {
