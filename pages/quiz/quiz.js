@@ -13,7 +13,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AnswersBox, {blankQuizButton, correctQuizButton, incorrectQuizButton} from "../../components/answersBox";
+import AnswersBox, {
+    blankQuizButton,
+    correctQuizButton,
+    incorrectQuizButton,
+    incorrectQuizButtonClicked
+} from "../../components/answersBox";
 import Box from "@mui/material/Box";
 import {
     ArrowBack,
@@ -25,6 +30,7 @@ import {
     Create
 } from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
+import {Typography} from "@mui/material";
 
 
 
@@ -51,7 +57,7 @@ export default function Quiz({resultsArray}) {
                 }
             },
             "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
-            "correctAnswer": "3",
+            "correctAnswer": 3,
             "question": "What state is Apple Corp. headquartered in?",
             "questionColor": "#000392",
             "user": {
@@ -81,7 +87,7 @@ export default function Quiz({resultsArray}) {
                 }
             },
             "backgroundURL": "https://media0.giphy.com/media/alsvKsM7XdOSQuAQnw/giphy-downsized-large.gif",
-            "correctAnswer": "1",
+            "correctAnswer": 1,
             "question": "What is the capitol of Georgia?",
             "questionColor": "red",
             "user": {
@@ -90,7 +96,38 @@ export default function Quiz({resultsArray}) {
                 "uid": "24905u4839",
             }
 
+        },
+        "deal7770": {
+            "answers": {
+                "0": {
+                    "answer": "Los Angeles",
+                    "correct": true
+                },
+                "1": {
+                    "answer": "San Diego",
+                    "correct": false
+                },
+                "2": {
+                    "answer": "San Fransisco",
+                    "correct": false
+                },
+                "3": {
+                    "answer": "Atlanta",
+                    "correct": false
+                }
+            },
+            "backgroundURL": "https://media1.giphy.com/media/3oKIPkTY7ag66BLsB2/giphy.gif",
+            "correctAnswer": 1,
+            "question": "What city are the Lakers based in",
+            "questionColor": "purple",
+            "user": {
+                "profileImageURL": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.18169-9/28059302_10204493246327835_2867238887703167492_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=w6lhQV8S39gAX_jxyIq&_nc_ht=scontent-atl3-1.xx&oh=00_AT9SfIg4_h18Zi3wAKCzglXVOki2r84lYk9Ac1ZGN4P7VA&oe=6248C9CE",
+                "name": "quizID",
+                "uid": "24905u4839",
+            }
+
         }
+
 
     }
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
@@ -126,6 +163,7 @@ export default function Quiz({resultsArray}) {
     });
     const [progress, setProgress] = React.useState(1);
     const [questionNumber, setQuestionNumber] = React.useState(0);
+    const [buttonClickedNumber, setButtonClickedNumber] = React.useState(0);
     let answers;
     let ResultsArray = resultsArray || standardArray
     React.useEffect(() => {
@@ -137,20 +175,15 @@ export default function Quiz({resultsArray}) {
             clearInterval(timer);
         };
     }, []);
-    function progressSet() {
-
+    function progressSet(buttonNumber) {
+        setButtonClickedNumber(buttonNumber)
         setProgress(100)
-
-    }
-   function updateQuestionNumber() {
 
 
     }
 
     function goForward() {
         if (questionNumber >= 0 && questionNumber < (Object.keys(ResultsArray).length) - 1) {
-            console.log(questionNumber)
-
             setQuestionNumber(questionNumber + 1)
             setProgress(-2)
 
@@ -167,22 +200,30 @@ export default function Quiz({resultsArray}) {
                 setProgress(-2)
         }
     }
-    function handleStyle(correctBool) {
+    function handleStyle(indexRaw,correctBool) {
+
 if (correctBool) {
+    // if correct bool === true then show the correct button styling
+
     return correctQuizButton
+} else if (indexRaw === buttonClickedNumber[0]) {
+    //if the bool is false and the button clicked is the button number
+
+    return incorrectQuizButtonClicked
 } else {
+    // all else
     return incorrectQuizButton
 }
-
     }
+
     if (progress === 100) {
         answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-            (<Button key={index} style={handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])}
+            (<Button key={index} style={handleStyle(index,ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])}
                      variant={"contained"}>
-                <Avatar sx={{ background: handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["background"],
-                    color: handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["color"],
-                    border: handleStyle(ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["border"],
+                <Avatar sx={{ background: handleStyle(index,ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["background"],
+                    color: handleStyle(index,ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["color"],
+                    border: handleStyle(index,ResultsArray[Object.keys(ResultsArray)[questionNumber]]["answers"][index]["correct"])["border"],
                     width: 24,
                     height: 24,
                     marginRight: "15px"}}
@@ -194,7 +235,7 @@ if (correctBool) {
     } else {
         answers = Array(~~(4)).fill(4).map( (key,index) =>
 
-            (<Button key={index} onClick={progressSet}   style={blankQuizButton}
+            (<Button key={index} onClick={() => progressSet([index])}   style={blankQuizButton}
                      variant={"contained"}>
                 <Avatar sx={{ background: quizButton[index]["background"], color: quizButton[index]["color"], border:quizButton[index]["border"], width: 24, height: 24, marginRight: "15px"}} alt={String.fromCharCode(65 + index)} src="/static/images/avatar/1.jpg" />
                 {/*{answers[index]}*/}
@@ -223,12 +264,6 @@ if (correctBool) {
             <br/>
             <br/>
 
-            {/*<div  style={{textAlign: "center", opacity: .01}}>*/}
-            {/*    <img height="140px"*/}
-
-            {/*         alt="hbcu gif text"*/}
-            {/*         src={data[1]}/>*/}
-            {/*</div>*/}
             <div style={{marginLeft: "0%", marginRight: "0%"}}>
                 <Stack
                     direction="row"
@@ -240,7 +275,6 @@ if (correctBool) {
                     <Box style={{color: "white", padding: "5px 15px 5px 15px",textAlign: "center",
                         background: ResultsArray[Object.keys(ResultsArray)[questionNumber]]["questionColor"],
                         borderTopLeftRadius: "25px", borderTopRightRadius: "25px"}}>
-                        {/*<h3>{ResultsArray["deal777"]["question"]}</h3>*/}
                         <h3>{ResultsArray[Object.keys(ResultsArray)[questionNumber]]["question"]}</h3>
                     </Box>
                     <Box style={{textAlign: "center",
@@ -269,10 +303,12 @@ if (correctBool) {
                         </Button>
                     </ThemeProvider>
 
+
+
             </Stack>
 
-
-
+    <br/>
+                <Typography color={"secondary"}> Powered by InTrivial</Typography>
             </div>
 
         </div>

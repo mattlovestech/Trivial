@@ -72,7 +72,7 @@ export default function Home() {
             <h1 className={styles.title}>
                 {"Social media style quizzes, but you're in control"}
             </h1>
-            <a className={styles.description}>Create social media style quizzes that can be shared anywhere, and analyze the results</a>
+            <a className={styles.description}>Create social media style quizzes that can be shared anywhere</a>
             <br/>
             <br/>
             <Button color={"secondary"} variant={"contained"} href={"/quiz"}>Create My Quiz</Button>

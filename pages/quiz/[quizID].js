@@ -8,8 +8,38 @@ function QuizPage() {
     const router = useRouter()
     const { quizID } = router.query
     let data = {
+        "deal7770": {
+            "answers": {
+                "0": {
+                    "answer": "Los Angeles",
+                    "correct": true
+                },
+                "1": {
+                    "answer": "San Diego",
+                    "correct": false
+                },
+                "2": {
+                    "answer": "San Fransisco",
+                    "correct": false
+                },
+                "3": {
+                    "answer": "Atlanta",
+                    "correct": false
+                }
+            },
+            "backgroundURL": "https://media1.giphy.com/media/3oKIPkTY7ag66BLsB2/giphy.gif",
+            "correctAnswer": 1,
+            "question": "What city are the Lakers based in",
+            "questionColor": "purple",
+            "user": {
+                "profileImageURL": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.18169-9/28059302_10204493246327835_2867238887703167492_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=w6lhQV8S39gAX_jxyIq&_nc_ht=scontent-atl3-1.xx&oh=00_AT9SfIg4_h18Zi3wAKCzglXVOki2r84lYk9Ac1ZGN4P7VA&oe=6248C9CE",
+                "name": quizID,
+                "uid": "24905u4839",
+            }
 
+        },
         "deal777": {
+
             "answers": {
                 "0": {
                     "answer": "Ohio",

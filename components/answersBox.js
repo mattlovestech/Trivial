@@ -27,6 +27,14 @@ export const incorrectQuizButton = {
     border: "1px darkred solid",
     color: "darkred"
 }
+export const incorrectQuizButtonClicked = {
+    marginBottom: "15px",
+    width: "75%",
+    justifyContent:" flex-start",
+    borderRadius:"25px",
+    background: "darkred",
+    color: "white"
+}
 export default function AnswersBox(props) {
     // Declare a new state variable, which we'll call "count"
    const [count, setCount] = useState(0);
