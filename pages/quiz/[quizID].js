@@ -120,5 +120,4 @@ export async function getServerSideProps(req) {
         props: {quizID }, // will be passed to the page component as props
     }
 }
-
 export default QuizPage
