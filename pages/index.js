@@ -18,7 +18,8 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import {Create, PanoramaFishEye, Visibility, Watch, WatchLater} from "@mui/icons-material";
-
+import Paper from "@mui/material/Paper";
+import CreateQuestionFlow from "../components/createQuestionFlow"
 export default function Home() {
     let data = {
 
@@ -81,7 +82,7 @@ export default function Home() {
             <br/>
             <Button color={"secondary"} variant={"outlined"} href={"/"} style={{margin: "10px"}}><Visibility style={{marginRight: "5px"}}/> Live Example  </Button>
 
-            <Button color={"secondary"} variant={"contained"} href={"/quiz"}>Create My Quiz <Create style={{marginLeft: "5px"}}/> </Button>
+            <Button color={"secondary"} variant={"contained"} href={"/quiz"}>Create <Create style={{marginLeft: "5px"}}/> </Button>
             <br/>
             <br/>
         </div>
@@ -95,12 +96,24 @@ export default function Home() {
         <br/>
             <Box>
                 <Card variant="outlined">
+
                     <CardContent>
                         <Typography variant="h6" color="text.secondary" gutterBottom>
                             Create
                         </Typography>
-<GetStartedFlow/>
+                        <CreateQuestionFlow/>
                     </CardContent>
+                </Card>
+            </Box>
+            <Box>
+                <Card variant="outlined">
+
+                        <CardContent>
+                            <Typography variant="h6" color="text.secondary" gutterBottom>
+                                Create
+                            </Typography>
+                            <GetStartedFlow/>
+                        </CardContent>
                 </Card>
             </Box>
             <br/>
@@ -108,14 +121,12 @@ export default function Home() {
                 <Card variant="outlined">
                     <CardContent>
                     <Typography variant="h6" color="text.secondary" gutterBottom>
-                       Live Preview
+                       Live Example
                     </Typography>
                     <div style={{marginRight: "1%",
                     marginLeft: "1%",
-
                     textAlign: "center"}}>
                     <Quiz resultsArray={data}/>
-
                 </div>
                     </CardContent>
                     </Card>

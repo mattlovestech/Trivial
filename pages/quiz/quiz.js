@@ -130,6 +130,8 @@ export default function Quiz({resultsArray}) {
 
 
     }
+    console.log("PSSED", resultsArray, standardArray)
+
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
     let buttonStyle = incorrectQuizButton
