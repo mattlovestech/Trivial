@@ -94,17 +94,7 @@ export default function Home() {
 
             <br/>
         <br/>
-            <Box>
-                <Card variant="outlined">
 
-                    <CardContent>
-                        <Typography variant="h6" color="text.secondary" gutterBottom>
-                            Create
-                        </Typography>
-                        <CreateQuestionFlow/>
-                    </CardContent>
-                </Card>
-            </Box>
             <Box>
                 <Card variant="outlined">
 

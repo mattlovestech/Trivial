@@ -13,12 +13,13 @@ import Input from "@mui/material/Input";
 import {Stack} from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {
+    Add, AddLink,
     AddLinkRounded,
     ChangeCircle,
     ChangeCircleOutlined, Circle,
-    CircleNotificationsRounded,
+    CircleNotificationsRounded, Code, CopyAll, CopyAllOutlined, Create,
     Edit,
-    EditAttributesRounded, FindInPage, FindInPageRounded, Save
+    EditAttributesRounded, FindInPage, FindInPageRounded, NewReleasesRounded, PlusOne, Save
 } from "@mui/icons-material";
 import styles from "../styles/Home.module.css";
 import TextField from "@mui/material/TextField";
@@ -27,6 +28,8 @@ import QuizNavBar from "./quizNavBar";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
+import Link from "@mui/material/Link";
+import Card from "@mui/material/Card";
 
 
 // let array = {
@@ -71,11 +74,11 @@ export default function GetStartedFlow() {
         "deal777": {
             "answers": {
                 "0": {
-                    "answer": "5",
+                    "answer": "Glass888",
                     "correct": false
                 },
                 "1": {
-                    "answer": "10",
+                    "answer": "Space Zoo",
                     "correct": false
                 },
                 "2": {
@@ -89,7 +92,7 @@ export default function GetStartedFlow() {
             },
             "backgroundURL": "https://i.pinimg.com/originals/79/98/76/79987683faf27c0c4ddb2e57f2bfddac.gif",
             "correctAnswer": 3,
-            "question": "What state is Apple Corp. headquartered in?",
+            "question": "What is the name of our NFT collection?",
             "questionColor": "rgba(171, 71, 188, 1)",
             "user": {
                 "profileImageURL": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.18169-9/28059302_10204493246327835_2867238887703167492_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=w6lhQV8S39gAX_jxyIq&_nc_ht=scontent-atl3-1.xx&oh=00_AT9SfIg4_h18Zi3wAKCzglXVOki2r84lYk9Ac1ZGN4P7VA&oe=6248C9CE",
@@ -239,7 +242,7 @@ export default function GetStartedFlow() {
                 </Stack>
                 <br/>
                 <div style={{backgroundImage:`url(` + data[0] +`)`,
-                    height: "450px"
+                    height: "500px"
                 }}>
                     <br/>
                     <br/>
@@ -252,7 +255,19 @@ export default function GetStartedFlow() {
 
         const publishBox = (
             <>
-            <Input/>
+
+                <a >
+                    <TextField
+                        label={"Shareable Link"}
+                    value={"http://intrivial.com/490843949"}
+                    disabled={true}
+                    fullWidth
+                    />
+
+
+
+
+                </a>
 
             </>
         )
@@ -322,6 +337,7 @@ export default function GetStartedFlow() {
                                         {index === steps.length - 1 ? (<>Publish &nbsp;<AddLinkRounded/>&nbsp;</>): (<>Save & Continue</>)}
                                     </Button>
                                     <Button
+                                        color={"secondary"}
                                         disabled={index === 0}
                                         onClick={handleBack}
                                         sx={{ mt: 1, mr: 1 }}
@@ -338,10 +354,15 @@ export default function GetStartedFlow() {
             </Stepper>
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
-                    <Typography>All steps completed - quiz is ready</Typography>
-                    <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                        Reset
-                    </Button>
+                    <Typography>All steps completed - question is ready</Typography>
+                    <br/>
+                    {publishBox}
+
+                    <br/>
+                    <br/>
+                    <Button color={"secondary"} variant={"contained"}>View in  Dashboard </Button>
+                    <Button color={"secondary"} onClick={handleReset}> Create New </Button>
+
                 </Paper>
             )}
         </Box>
