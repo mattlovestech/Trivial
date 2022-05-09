@@ -304,7 +304,7 @@ if (correctBool) {
             </Stack>
 
     <br/>
-                <Typography color={"secondary"}> Powered by InTrivial</Typography>
+                <Typography color={"secondary"}> Created by @mattlovestech</Typography>
             </div>
 
         </div>
