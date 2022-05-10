@@ -35,7 +35,7 @@ import {Typography} from "@mui/material";
 
 
 export default function Quiz({resultsArray}) {
-    const standardArray = {
+    const fallBackArray = {
 
         "deal777": {
             "answers": {
@@ -133,7 +133,7 @@ export default function Quiz({resultsArray}) {
     let update = [incorrectQuizButton,correctQuizButton,incorrectQuizButton,incorrectQuizButton]
     let quizButton = [blankQuizButton,blankQuizButton,blankQuizButton,blankQuizButton]
     let buttonStyle = incorrectQuizButton
-
+    // styling for theme
     const theme = createTheme({
         palette: {
             primary: {
@@ -157,11 +157,16 @@ export default function Quiz({resultsArray}) {
             tonalOffset: 0.2,
         },
     });
+    
     const [progress, setProgress] = React.useState(1);
     const [questionNumber, setQuestionNumber] = React.useState(0);
     const [buttonClickedNumber, setButtonClickedNumber] = React.useState(0);
     let answers;
-    let ResultsArray = resultsArray || standardArray
+
+    //if results array is not present then defaults to fallback array
+    let ResultsArray = resultsArray || fallBackArray
+
+    //set progress bar at the top to stop at 100% and auto answer
     React.useEffect(() => {
         const timer = setInterval(() => {
             setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 1));
@@ -174,8 +179,6 @@ export default function Quiz({resultsArray}) {
     function progressSet(buttonNumber) {
         setButtonClickedNumber(buttonNumber)
         setProgress(100)
-
-
     }
 
     function goForward() {
@@ -245,7 +248,7 @@ if (correctBool) {
     return (
 
         <div className={styles.container}
-             // onClick={() => alert("A")}
+             // background image dynamically generated 
              style={{backgroundImage:`url(` + ResultsArray[Object.keys(ResultsArray)[questionNumber]]["backgroundURL"] +`)`,
                  height: "100vh"
 
@@ -291,7 +294,7 @@ if (correctBool) {
                     spacing={2}
                 >
                     <ThemeProvider theme={theme}>
-                        <Button color={"primary"} variant="outlined" startIcon={<Create />}>
+                        <Button color={"primary"} variant="outlined" startIcon={<Create />} onClick={() => alert("feature nto available yet :9\(")}>
                             Create
                         </Button>
                         <Button variant="contained" endIcon={<SendIcon />}>
