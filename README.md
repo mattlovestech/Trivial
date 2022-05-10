@@ -42,3 +42,8 @@ Questions
 
 Quiz
 >>QuestionIds: [QuestionId1, QuestionId2, etc.]
+
+## How to swtich users
+<code>
+git config [--global] user.email "email@address.com"
+</code>
